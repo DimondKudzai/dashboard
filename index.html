@@ -148,7 +148,7 @@
       fetch('https://reqres.in/api/users')
         .then(response => response.json())
         .then(all_data => this.setState({ users: all_data.data, loading: false }))
-        .catch(error => this.state({error: error.message, loading: false}));
+        .catch(error => this.setState({error: error.message, loading: false}));
     }
 
     handleSearch = (event) => {
@@ -161,7 +161,7 @@
 
     render() {
       const { users, searchQuery, selectedUser, error, loading } = this.state;
-      const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filteredUsers = users.filter(user => user.first_name.toLowerCase().includes(searchQuery.toLowerCase()) || user.last_name.toLowerCase().includes(searchQuery.toLowerCase()));
 
       if(loading){
         
@@ -207,9 +207,9 @@
            <div className="intro_para">
             <h1>User Details</h1>
              <center>
-            <img className="main_img" src={selectedUser.avatar} alt={selectedUser.name} />
+            <img className="main_img" src={selectedUser.avatar} alt={selectedUser.first_name} />
              </center>
-            <h2>{selectedUser.name}</h2>
+            <h2><span>{selectedUser.first_name }</span> <span>{selectedUser.last_name}</span></h2>
             <p>Email: {selectedUser.email}</p>
             <p>User ID: {selectedUser.id}</p>
             <button className="submit_butt" onClick={() => this.setState({ selectedUser: null })}>Back</button>
@@ -226,8 +226,8 @@
           <ul>
             {filteredUsers.map(user => (
               <li key={user.id} onClick={() => this.handleUserClick(user)}>
-                <img className="proPic" src={user.avatar} alt={user.name} />
-                <span>{user.name}</span>
+                <img className="proPic" src={user.avatar} alt={user.first_name} />
+                <span>{user.first_name} {user.last_name}</span>
               </li>
             ))}
           </ul>
