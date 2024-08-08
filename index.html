@@ -61,11 +61,13 @@
   .proPic{
     width: 4em;
     border-radius: 50%;
+    opacity: 1;
 
   }
   .main_img{
     border-radius: 15px;
     width: 50%;
+    opacity: 1;
 
   }
 
@@ -75,6 +77,9 @@
    padding: 10px;
    opacity: 0.8;
    border-radius: 5px;
+  }
+  .names{
+  margin-top: -4px;
   }
     
   </style>
@@ -88,7 +93,7 @@
 
   <header>
     <center>
-      
+     <strong>Welcome<strong>
     </center>
 
 
@@ -105,7 +110,7 @@
 <hr>
 <br>
 <footer>
-  &copy2024 Dimond M
+  &copy2024 Dimond | reqres API
 
 </footer>
 
@@ -222,12 +227,12 @@
         <div className="home">
          <div className="intro_para">
           <h1>Users Dashboard</h1>
-          <input placeholder="search" className="user_input " type="search" value={searchQuery} onChange={this.handleSearch} />
+          <input placeholder="search" className="userInput" type="search" value={searchQuery} onChange={this.handleSearch} />
           <ul>
             {filteredUsers.map(user => (
               <li key={user.id} onClick={() => this.handleUserClick(user)}>
                 <img className="proPic" src={user.avatar} alt={user.first_name} />
-                <span>{user.first_name} {user.last_name}</span>
+                <span className="names">{user.first_name} {user.last_name}</span>
               </li>
             ))}
           </ul>
