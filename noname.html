@@ -1,0 +1,36 @@
+
+<br><br>
+<p id="test"></p>
+
+
+<script type="text/javascript">
+
+
+
+
+// Set API endpoint URL
+const url = '(link unavailable)';
+
+// Set Basic Auth credentials
+const username = 'coalition';
+const password = 'skills-test';
+
+// Create a base64 encoded string from the username and password
+const credentials = btoa(`${username}:${password}`);
+
+// Set the Authorization header with the encoded credentials
+const headers = {
+  'Authorization': `Basic ${credentials}`
+};
+
+// Use the Fetch API to make a GET request to the API endpoint
+fetch(url, { headers })
+  .then(response => response.json())
+  .then(data => document.getElementById("test").innerHTML=data)
+  .catch(error => console.error('Error:', error));
+
+
+
+
+
+</script>
