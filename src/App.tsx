@@ -23,8 +23,10 @@ function App() {
     setLoading(true)
     setError(null)
     
-    fetch('https://reqres.in/api/users', {
-      headers: { 'x-api-key': 'reqres-free-v1' }
+    fetch('https://reqres.in/api/users?page=1', {
+    headers: { 
+    'x-api-key': 'reqres-free-v1' 
+    }
     })
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
