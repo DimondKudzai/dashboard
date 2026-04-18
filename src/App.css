@@ -1,0 +1,66 @@
+*{
+    font-family: roboto;
+  }
+
+  .loading{
+
+    text-align: center;
+    padding: 50px;
+  }
+.home{
+    text-align: center;
+    padding: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+  }
+  footer{
+    text-align: center;
+  }
+  ul, li{
+    list-style: none;
+    padding: 5px;
+
+  }
+
+  .userInput{
+  border-radius: 10px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width:  60%;
+  }
+
+.submit_butt{
+
+  border-radius: 10px;
+  background-color: #FOF8FF;
+  border: 1px solid #FOF8FF;
+  padding: 8px;
+}
+
+.proPic{
+  width: 4em;
+  border-radius: 50%;
+  opacity: 1;
+
+}
+.main_img{
+  border-radius: 15px;
+  width: 50%;
+  opacity: 1;
+
+}
+
+.intro_para{
+ text-align: center;
+ background-color: white;
+ padding: 10px;
+ opacity: 0.93;
+ border-radius: 5px;
+}
+.names{
+margin-top: -4px;
+}
+  
