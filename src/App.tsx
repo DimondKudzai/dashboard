@@ -2,19 +2,27 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import bgImg from './assets/weather_bg.jpg'
 
+// 1. Define what a User looks like
+type User = {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  avatar: string;
+};
 
 function App() {
-  const [users, setUsers] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedUser, setSelectedUser] = useState(null)
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  // 2. Tell useState what type each state holds
+  const [users, setUsers] = useState<User[]>([])
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     setLoading(true)
     setError(null)
     
-    // reqres.in now requires a header. Use free key or any string works
     fetch('https://reqres.in/api/users', {
       headers: { 'x-api-key': 'reqres-free-v1' }
     })
@@ -23,11 +31,12 @@ function App() {
         return res.json()
       })
       .then(data => setUsers(data.data))
-      .catch(err => setError(err.message))
+      .catch((err: Error) => setError(err.message))
       .finally(() => setLoading(false))
   }, [])
 
-  const handleSearch = (e) => {
+  // 3. Type the event parameter
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value.trim())
   }
 
