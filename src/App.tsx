@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import bgImg from './assets/weather_bg.jpg'
 
@@ -21,19 +21,18 @@ function App() {
     setLoading(true)
     setError(null)
     
-    // No headers, no key, works forever
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         return res.json()
       })
-      .then(data => setUsers(data)) // Note: data, not data.data
+      .then((data: User[]) => setUsers(data)) // typed data for TS safety
       .catch((err: Error) => setError(err.message))
       .finally(() => setLoading(false))
   }, [])
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value.trim())
+    setSearchQuery(e.target.value) // don't trim here - trims while typing
   }
 
   const filteredUsers = users.filter(user => 
@@ -97,9 +96,9 @@ function App() {
                 className="proPic" 
                 src={`https://i.pravatar.cc/150?u=${user.id}`} 
                 alt={user.name} 
-              /><br>
+              /><br /> {/* Fixed */}
               <span className="names">{user.name}</span>
-              <br><hr>
+              <br /><hr /> {/* Fixed */}
             </li>
           ))}
         </ul>
