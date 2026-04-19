@@ -1,36 +1,33 @@
-Got it. Here’s a `README.md` specifically for your *ReqRes Users Dashboard*:
-ReqRes Users Dashboard – React + Vite
+A clean React dashboard that fetches and displays users from an API. Built with hooks, search filtering, and detail views.
 
-A clean React dashboard that fetches and displays users from the ReqRes API. Built with hooks, search filtering, and detail views.
-
-**Live Demo**: https://your-username.github.io/reqres-dashboard  
-**API**: [ReqRes.in](https://reqres.in/) – Free REST API for testing
+**Live Demo**: https://dashboard-one-weld-48.vercel.app/ 
+**API**: [Jsonplaceholder](https://jsonplaceholder.typicode.com/users) – Free REST API for testing
 
 ✨ Features
-- **Fetch users** from `GET https://reqres.in/api/users`
+- **Fetch users** from `GET https://jsonplaceholder.typicode.com/users`
 - **Search users** by first/last name in real-time
 - **Detail view** – click any user to see avatar, email, ID
 - **Loading + error states** with proper UI feedback
 - **Responsive design** – works on mobile & desktop
-- **API key handled** – uses `x-api-key: reqres-free-v1` header
+- **API key handled** 
 
 🛠 Tech Stack
 - **React 18** – Functional components + Hooks
 - **Vite** – Dev server + build tool
 - **Fetch API** – No axios needed
 - **CSS** – Custom styling, no frameworks
-- **ReqRes API** – Test data source
+- **Jsonplaceholder** – Test data source
 
 📸 Preview
-![Dashboard Screenshot](./public/preview.png)
-> Screenshot to `public/preview.png`
+![Dashboard Screenshot](https://dashboard-one-weld-48.vercel.app/)
+> Live demo to `dashboard`
 
 🔧 Run Locally
 
 1. **Clone the repo**
    ```bash
    git clone https://github.com/dimondkudzai/dashboard.git
-   cd reqres-dashboard
+   cd dashboard
 2. *Install deps*
    npm install
 3. *Start dev server*
@@ -43,9 +40,8 @@ npm run preview
 Output goes to `/dist` – upload this folder to Vercel, Netlify, or GitHub Pages.
 
 🔑 API Setup
-ReqRes now requires an API key. This app includes the free key:
-headers: { 'x-api-key': 'reqres-free-v1' }
-If you get 401 errors, register at http://reqres.in for your own key.
+The API is oublic and free no key required
+
 
 📁 Project Structure
 src/
@@ -55,9 +51,7 @@ src/
 └── assets/       # Images
 🔗 Key Code Snippet
 useEffect(() => {
-  fetch("https://reqres.in/api/users", {
-    headers: { "x-api-key": "reqres-free-v1" }
-  })
+  fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => res.json())
     .then(data => setUsers(data.data))
     .catch(() => setError(true));
@@ -71,7 +65,6 @@ Auto-deploys on every `git push` to `main`.
 
 🐛 Common Issues
 Error	Fix
-`401 Unauthorized`	Add `x-api-key` header to fetch
 `users.map is not a function`	Use `data.data` not `data`
 Blank screen	Check browser console for CORS/API errors
 📬 Contact

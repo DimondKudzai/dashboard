@@ -99,7 +99,8 @@ function App() {
                 alt={user.name} 
               /><br>
               <span className="names">{user.name}</span>
-            </li><br><hr>
+              <br><hr>
+            </li>
           ))}
         </ul>
       </div>
