@@ -20,7 +20,7 @@
     }
     ul, li{
       list-style: none;
-      padding: 5px;
+      padding: 15px;
 
     }
 
@@ -63,4 +63,13 @@
   .names{
   margin-top: -4px;
   }
+  p{
+  text-align: left;
+  }
     
+  b{
+  color: blue;
+  }
+  span{
+  color: blue;
+  }

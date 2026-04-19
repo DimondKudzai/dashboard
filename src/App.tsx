@@ -70,9 +70,9 @@ function App() {
             />
           </center>
           <h2>{selectedUser.name}</h2>
-          <p>Username: @{selectedUser.username}</p>
-          <p>Email: {selectedUser.email}</p>
-          <p>User ID: {selectedUser.id}</p>
+          <p>Username: <b>@{selectedUser.username}</b></p>
+          <p>Email: <span>{selectedUser.email}</span></p>
+          <p>User ID: <span>{selectedUser.id}</span></p>
           <button className="submit_butt" onClick={() => setSelectedUser(null)}>Back</button>
         </div>
       </div>
@@ -97,9 +97,9 @@ function App() {
                 className="proPic" 
                 src={`https://i.pravatar.cc/150?u=${user.id}`} 
                 alt={user.name} 
-              />
+              /><br>
               <span className="names">{user.name}</span>
-            </li>
+            </li><br><hr>
           ))}
         </ul>
       </div>
